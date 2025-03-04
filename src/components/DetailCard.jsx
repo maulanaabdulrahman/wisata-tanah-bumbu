@@ -4,23 +4,13 @@ import {
   FaMapLocationDot,
   FaPeopleGroup,
 } from "react-icons/fa6";
-import { useSidebar } from "../context/SidebarContext";
 
-function DetailCard() {
-  const { isOpen } = useSidebar();
-  const { isDetail } = useSidebar();
-
+function DetailCard({ isDetail }) {
   return (
     <div
-      className={`w-[387px] h-dvh absolute ${
-        isOpen
-          ? isDetail
-            ? "left-[326px]"
-            : "left-[-100px]"
-          : isDetail
-          ? "left-[103px]"
-          : "left-[-300px]"
-      }  z-30 bg-white transition-all duration-300 ease-in-out`}
+      className={`w-[387px] h-dvh absolute z-[9999] ${
+        isDetail ? "left-0" : "-left-full"
+      } bg-white transition-all duration-300 ease-in-out`}
     >
       <img
         src="gua-liang-bangkai.png"
@@ -31,17 +21,20 @@ function DetailCard() {
         <h1 className=" text-2xl mb-5">Gua Liang Bingkai</h1>
         <div className="flex flex-col gap-3.5  mb-8">
           <div className="flex gap-2.5 text-sm">
-            <FaLocationDot size={19} /> Kecamatan Mentewe
+            <FaLocationDot size={19} className="flex-shrink-0" /> Kecamatan
+            Mentewe
           </div>
           <div className="flex gap-2.5 text-sm overflow-ellipsis">
-            <FaMapLocationDot size={19} /> QQWW+XVH, Dukuh Rejo, Kec. Mantewe,
-            Kabupaten Tanah Bumbu, Kalimantan Selatan 72211
+            <FaMapLocationDot size={19} className="flex-shrink-0" /> QQWW+XVH,
+            Dukuh Rejo, Kec. Mantewe, Kabupaten Tanah Bumbu, Kalimantan Selatan
+            72211
           </div>
           <div className="flex gap-2.5 text-sm">
-            <FaBuildingColumns size={19} /> 1000 Km dari Batulicin
+            <FaBuildingColumns size={19} className="flex-shrink-0" /> 1000 Km
+            dari Batulicin
           </div>
           <div className="flex gap-2.5 text-sm">
-            <FaPeopleGroup size={19} /> 850 Kunjungan
+            <FaPeopleGroup size={19} className="flex-shrink-0" /> 850 Kunjungan
           </div>
         </div>
 

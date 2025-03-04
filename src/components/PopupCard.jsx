@@ -1,9 +1,6 @@
 import { FaLocationDot, FaPeopleGroup } from "react-icons/fa6";
-import { useSidebar } from "../context/SidebarContext";
 
-function PopupCard({ image, title, location, view }) {
-  const { setIsDetail } = useSidebar();
-
+function PopupCard({ image, title, location, view, setIsDetail }) {
   return (
     <div className="flex flex-col w-[300px]">
       <img src={image} alt="Image Wisata" className="w-[300px] h-[175px]" />
@@ -17,7 +14,10 @@ function PopupCard({ image, title, location, view }) {
         <span className="text-sm m-0">{view} Kunjungan</span>
       </div>
 
-      <button onClick={() => setIsDetail((prev) => !prev)} className="right-6 bottom-3 bg-[#2EB2C2] rounded-[8px] text-white text-sm w-[102px] h-12 self-end cursor-pointer">
+      <button
+        onClick={() => setIsDetail((prev) => !prev)}
+        className="right-6 bottom-3 bg-[#2EB2C2] rounded-[8px] text-white text-sm w-[102px] h-12 self-end cursor-pointer"
+      >
         Lihat Detail
       </button>
     </div>

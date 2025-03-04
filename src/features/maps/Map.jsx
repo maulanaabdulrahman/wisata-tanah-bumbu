@@ -9,10 +9,18 @@ import {
 import "leaflet/dist/leaflet.css"; // Import CSS Leaflet
 import geojsonData from "../../data/geojsonData";
 import PopupCard from "../../components/PopupCard";
+import SearchField from "../../components/SearchField";
+import DetailCard from "../../components/DetailCard";
+import { useState } from "react";
 
 function Map() {
+  const [isDetail, setIsDetail] = useState(false);
+
   return (
-    <div className="flex-1 z-10">
+    <div className="relative flex-1 z-10">
+      <SearchField />
+      <DetailCard isDetail={isDetail} />
+
       <MapContainer
         center={[-3.37611, 115.772301]}
         zoom={10}
@@ -39,6 +47,7 @@ function Map() {
               title="Gua Liang Bangkai"
               location={"Kecamatan Mentewe"}
               view={120}
+              setIsDetail={setIsDetail}
             />
           </Popup>
         </Marker>
@@ -49,6 +58,7 @@ function Map() {
               title="Pantai Pagatan"
               location={"Kecamatan Mentewe"}
               view={320}
+              setIsDetail={setIsDetail}
             />
           </Popup>
         </Marker>
