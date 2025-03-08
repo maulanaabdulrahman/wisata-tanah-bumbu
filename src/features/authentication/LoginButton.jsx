@@ -10,19 +10,24 @@ const variations = {
     font-weight: 500;
   `,
   primary: css`
-    width: 405px;
+    width: 100%;
+    max-width: 405px;
     height: 50px;
     background-color: #2eb2c2;
     color: #fff;
     font-size: 18px;
     font-weight: 700;
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+      height: 45px;
+    }
   `,
 };
 
 const ButtonLogin = styled.button`
   border-radius: 5px;
-  cursor: pointer;  
-
+  cursor: pointer;
   ${(props) => variations[props.variation]}
 `;
 

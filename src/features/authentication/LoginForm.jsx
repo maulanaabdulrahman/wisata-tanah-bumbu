@@ -9,11 +9,30 @@ import styled from "styled-components";
 const LoginFormStyled = styled.form`
   padding: 42px 51px;
   max-width: 512px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 30px 25px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+  }
+`;
+
+const Title = styled.h1`
+  font-weight: 700;
+  font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
-
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
@@ -22,9 +41,7 @@ function LoginForm() {
 
   return (
     <LoginFormStyled onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="font-bold text-3xl mb-6">
-        Selamat Datang di Wisata Tanah Bumbu
-      </h1>
+      <Title>Selamat Datang di Wisata Tanah Bumbu</Title>
       <InputLogin title={"Email"}>
         <Input
           type="email"
@@ -34,8 +51,8 @@ function LoginForm() {
       </InputLogin>
       <InputLogin title={"Password"}>
         <Input
-          type="Password"
-          placeholder="Masukkan Email Anda"
+          type="password"
+          placeholder="Masukkan Password Anda"
           {...register("password")}
         />
       </InputLogin>
